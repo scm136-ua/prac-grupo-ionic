@@ -11,7 +11,7 @@
 </ion-item>
 
 <ion-list *ngIf="selected">
-  <ion-item *ngFor="let article of articles">
-    <ion-label>{{ article.name }}</ion-label>
+  <ion-item *ngFor="let article of articles" [href]="generateURL(theCategory.name, article.uid)">
+    {{ article.name }}
   </ion-item>
 </ion-list>

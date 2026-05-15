@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/wiki"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title + " (" + category + ")" }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Facts about {{ title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content [ngSwitch]="category">
+
+      <ion-list *ngSwitchCase="'People'">
+        <ion-item><ion-label>Height</ion-label><ion-badge slot="end">{{ people.height }}</ion-badge></ion-item>
+        <ion-item><ion-label>Mass</ion-label><ion-badge slot="end">{{ people.mass }}</ion-badge></ion-item>
+        <ion-item><ion-label>Hair color</ion-label><ion-badge slot="end">{{ people.hair_color }}</ion-badge></ion-item>
+        <ion-item><ion-label>Skin color</ion-label><ion-badge slot="end">{{ people.skin_color }}</ion-badge></ion-item>
+        <ion-item><ion-label>Eye color</ion-label><ion-badge slot="end">{{ people.eye_color }}</ion-badge></ion-item>
+        <ion-item><ion-label>Birth year</ion-label><ion-badge slot="end">{{ people.birth_year }}</ion-badge></ion-item>
+        <ion-item><ion-label>Gender</ion-label><ion-badge slot="end">{{ people.gender }}</ion-badge></ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Planets'">
+        <ion-item><ion-label>Climate</ion-label><ion-badge slot="end">{{ planet.climate }}</ion-badge></ion-item>
+        <ion-item><ion-label>Diameter</ion-label><ion-badge slot="end">{{ planet.diameter }}</ion-badge></ion-item>
+        <ion-item><ion-label>Gravity</ion-label><ion-badge slot="end">{{ planet.gravity }}</ion-badge></ion-item>
+        <ion-item><ion-label>Orbital period</ion-label><ion-badge slot="end">{{ planet.orbital_period }}</ion-badge></ion-item>
+        <ion-item><ion-label>Population</ion-label><ion-badge slot="end">{{ planet.population }}</ion-badge></ion-item>
+        <ion-item><ion-label>Rotation period</ion-label><ion-badge slot="end">{{ planet.rotation_period }}</ion-badge></ion-item>
+        <ion-item><ion-label>Surface water</ion-label><ion-badge slot="end">{{ planet.surface_water }}</ion-badge></ion-item>
+        <ion-item><ion-label>Terrain</ion-label><ion-badge slot="end">{{ planet.terrain }}</ion-badge></ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Species'">
+        <ion-item><ion-label>Average height</ion-label><ion-badge slot="end">{{ species.average_height }}</ion-badge></ion-item>
+        <ion-item><ion-label>Average lifespan</ion-label><ion-badge slot="end">{{ species.average_lifespan }}</ion-badge></ion-item>
+        <ion-item><ion-label>Classification</ion-label><ion-badge slot="end">{{ species.classification }}</ion-badge></ion-item>
+        <ion-item><ion-label>Designation</ion-label><ion-badge slot="end">{{ species.designation }}</ion-badge></ion-item>
+        <ion-item><ion-label>Eye colors</ion-label><ion-badge slot="end">{{ species.eye_colors }}</ion-badge></ion-item>
+        <ion-item><ion-label>Hair colors</ion-label><ion-badge slot="end">{{ species.hair_colors }}</ion-badge></ion-item>
+        <ion-item><ion-label>Language</ion-label><ion-badge slot="end">{{ species.language }}</ion-badge></ion-item>
+        <ion-item><ion-label>Skin colors</ion-label><ion-badge slot="end">{{ species.skin_colors }}</ion-badge></ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Starships'">
+        <ion-item><ion-label>Model</ion-label><ion-badge slot="end">{{ starship.model }}</ion-badge></ion-item>
+        <ion-item><ion-label>Manufacturer</ion-label><ion-badge slot="end">{{ starship.manufacturer }}</ion-badge></ion-item>
+        <ion-item><ion-label>Cost in credits</ion-label><ion-badge slot="end">{{ starship.cost_in_credits }}</ion-badge></ion-item>
+        <ion-item><ion-label>Length</ion-label><ion-badge slot="end">{{ starship.length }}</ion-badge></ion-item>
+        <ion-item><ion-label>Max atmosphering speed</ion-label><ion-badge slot="end">{{ starship.max_atmosphering_speed }}</ion-badge></ion-item>
+        <ion-item><ion-label>Crew</ion-label><ion-badge slot="end">{{ starship.crew }}</ion-badge></ion-item>
+        <ion-item><ion-label>Passengers</ion-label><ion-badge slot="end">{{ starship.passengers }}</ion-badge></ion-item>
+        <ion-item><ion-label>Cargo capacity</ion-label><ion-badge slot="end">{{ starship.cargo_capacity }}</ion-badge></ion-item>
+        <ion-item><ion-label>Consumables</ion-label><ion-badge slot="end">{{ starship.consumables }}</ion-badge></ion-item>
+        <ion-item><ion-label>Hyperdrive rating</ion-label><ion-badge slot="end">{{ starship.hyperdrive_rating }}</ion-badge></ion-item>
+        <ion-item><ion-label>MGLT</ion-label><ion-badge slot="end">{{ starship.MGLT }}</ion-badge></ion-item>
+        <ion-item><ion-label>Starship class</ion-label><ion-badge slot="end">{{ starship.starship_class }}</ion-badge></ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

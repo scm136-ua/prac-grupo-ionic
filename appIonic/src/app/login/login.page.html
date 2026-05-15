@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="formLogin" (ngSubmit)="doLogin()">
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="user@server.com"></ion-input>
+    </ion-item>
+    <ion-text color="danger"
+      *ngIf="formLogin.get('email')?.touched && formLogin.get('email')?.hasError('required')">
+      <p>Email is required.</p>
+    </ion-text>
+    <ion-text color="danger"
+      *ngIf="formLogin.get('email')?.touched && formLogin.get('email')?.hasError('email')">
+      <p>Email format is invalid.</p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-text color="danger"
+      *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.hasError('required')">
+      <p>Password is required.</p>
+    </ion-text>
+    <ion-text color="danger"
+      *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.hasError('minlength')">
+      <p>Password must be at least 6 characters.</p>
+    </ion-text>
+
+    <ion-button expand="block" type="submit" [disabled]="!formLogin.valid" class="ion-margin-top">
+      Login
+    </ion-button>
+  </form>
+
+  <ion-alert
+    [isOpen]="error !== ''"
+    header="Login error"
+    [message]="error"
+    [buttons]="['OK']"
+    (didDismiss)="clearError()">
+  </ion-alert>
+</ion-content>

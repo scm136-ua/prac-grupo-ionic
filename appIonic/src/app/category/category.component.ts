@@ -28,4 +28,8 @@ export class CategoryComponent {
       this.articles = data.results;
     });
   }
+
+  generateURL(cat: string, id: string): string {
+    return "/tabs/wiki/article/" + cat + "/" + id;
+  }
 }

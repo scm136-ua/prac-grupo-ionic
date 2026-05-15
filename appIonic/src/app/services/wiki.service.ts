@@ -13,4 +13,8 @@ export class WikiService {
   getAllArticles(category: string): Observable<any> {
     return this.http.get(`${this.API_URL}${category}`);
   }
+
+  getArticle(category: string, id: string): Observable<any> {
+    return this.http.get<any>(this.API_URL + category.toLowerCase() + "/" + id);
+  }
 }
