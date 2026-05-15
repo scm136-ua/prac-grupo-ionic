@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WikiPage } from './wiki.page';
 import { WikiPageRoutingModule } from './wiki-routing.module';
-import { ToastComponent } from '../toast.component';
+import { CategoryComponent } from '../category/category.component';
 
 @NgModule({
   imports: [IonicModule, CommonModule, FormsModule, WikiPageRoutingModule],
-  declarations: [WikiPage, ToastComponent]
+  declarations: [WikiPage, CategoryComponent]
 })
 export class WikiPageModule {}

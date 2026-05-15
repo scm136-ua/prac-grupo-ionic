@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Category } from '../models/category';
 
 @Component({
   selector: 'app-wiki',
   templateUrl: 'wiki.page.html',
   styleUrls: ['wiki.page.scss']
 })
-export class WikiPage {
-  readonly categories: string[] = ['People', 'Planets', 'Species', 'Starships'];
+export class WikiPage implements OnInit {
+  categories: Category[] = [];
+  selectedCategory: string = "";
 
   constructor() {}
+
+  ngOnInit() {
+    fetch('assets/data/categories.json')
+      .then(res => res.json())
+      .then((data: Category[]) => {
+        this.categories = data;
+      });
+  }
+
+  selectCategory(name: string) {
+    this.selectedCategory = this.selectedCategory === name ? "" : name;
+  }
 }
