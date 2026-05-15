@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('../wiki/wiki.module').then(m => m.WikiPageModule)
       },
       {
+        path: 'favorites',
+        loadChildren: () => import('../favorites/favorites.module').then(m => m.FavoritesPageModule)
+      },
+      {
         path: 'about',
         loadChildren: () => import('../about/about.module').then(m => m.AboutPageModule)
       },
