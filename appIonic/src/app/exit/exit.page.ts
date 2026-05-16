@@ -14,7 +14,12 @@ export class ExitPage {
     const alert = await this.alertCtrl.create({
       header: 'Exit',
       message: 'You have decided to exit the app.',
-      buttons: ['OK']
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          this.router.navigateByUrl('/login');
+        }
+      }]
     });
     await alert.present();
   }
