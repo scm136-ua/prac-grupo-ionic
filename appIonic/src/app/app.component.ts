@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
+    this.getMenu();
     await this.platform.ready();
 
     await this.showWelcomeToast();

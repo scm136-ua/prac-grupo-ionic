@@ -5,6 +5,7 @@ import { People } from '../models/people';
 import { Planet } from '../models/planet';
 import { Species } from '../models/species';
 import { Starship } from '../models/starship';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-article',
@@ -21,7 +22,10 @@ export class ArticlePage implements OnInit {
   species: Species = new Species();
   starship: Starship = new Starship();
 
-  constructor(private route: ActivatedRoute, private srv: WikiService) {}
+  constructor(private route: ActivatedRoute, private srv: WikiService, private storageSrv: StorageService) {}
+
+  public isFavorite: boolean = false;
+  private favorites:any[] = [];
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
