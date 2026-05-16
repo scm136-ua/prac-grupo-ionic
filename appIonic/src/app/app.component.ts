@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastController, Platform } from '@ionic/angular';
 
 @Component({
@@ -6,10 +6,15 @@ import { ToastController, Platform } from '@ionic/angular';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  readonly menuFile:string = "../assets/data/menu.json";
+  menuOptions=[];
+
   constructor(
     private toastController: ToastController,
     private platform: Platform
+
   ) {}
 
 
@@ -17,6 +22,14 @@ export class AppComponent {
     await this.platform.ready();
 
     await this.showWelcomeToast();
+  }
+
+  getMenu() {
+    fetch(this.menuFile).then(res=> res.json())
+    .then(json=> {
+      this.menuOptions = json;
+      console.log(this.menuOptions);
+    })
   }
 
   async showWelcomeToast() {
