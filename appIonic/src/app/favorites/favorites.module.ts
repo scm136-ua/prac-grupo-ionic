@@ -9,7 +9,7 @@ import { StorageService } from '../services/storage.service';
 
 
 @NgModule({
-  imports: [IonicModule, CommonModule, FormsModule, FavoritesPageRoutingModule, StorageService],
+  imports: [IonicModule, CommonModule, FormsModule, FavoritesPageRoutingModule],
   declarations: [FavoritesPage]
 })
 export class FavoritesPageModule {}

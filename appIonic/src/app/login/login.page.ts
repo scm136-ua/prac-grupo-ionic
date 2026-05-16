@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private menuController: MenuController
   ) {}
 
   ngOnInit() {
@@ -48,4 +50,8 @@ export class LoginPage implements OnInit {
   clearError() {
     this.error = "";
   }
+
+  ionViewWillEnter() {
+      this.menuController.enable(false, 'principal');
+    }
 }

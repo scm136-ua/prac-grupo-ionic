@@ -10,9 +10,9 @@ export class TabsPage {
   constructor(private menuController: MenuController) {}
 
 
-  ionViewWillEnter() {
-  this.menuController.enable(false, 'principal');
-}
+    ionViewWillEnter() {
+      this.menuController.enable(false, 'principal');
+    }
 
 }
 

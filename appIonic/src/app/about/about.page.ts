@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['about.page.scss']
 })
 export class AboutPage {
-  constructor() {}
+  constructor(private menuController: MenuController) {}
+
+  ionViewWillEnter() {
+      this.menuController.enable(true, 'principal');
+    }
 }

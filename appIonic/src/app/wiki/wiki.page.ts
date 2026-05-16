@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../models/category';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-wiki',
@@ -10,7 +11,7 @@ export class WikiPage implements OnInit {
   categories: Category[] = [];
   selectedCategory: string = "";
 
-  constructor() {}
+  constructor(private menuController: MenuController) {}
 
   ngOnInit() {
     fetch('assets/data/categories.json')
@@ -23,4 +24,8 @@ export class WikiPage implements OnInit {
   selectCategory(name: string) {
     this.selectedCategory = this.selectedCategory === name ? "" : name;
   }
+
+  ionViewWillEnter() {
+      this.menuController.enable(true, 'principal');
+    }
 }
